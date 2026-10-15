@@ -6,7 +6,7 @@ This project was built as the foundational baseline for an Honours degree projec
 ## Features
 * **Pure Funcitonal Logic:** Built entirely without `for` loops or multable state, utilising Erlang's pattern matching and list comprehenstion.
 * **Dynamic Padding:** Automatically detects matrix dimensions and pads them to the nearest power of 2 (required for Strassen's recursive splitting), then trims the result.
-* **Divide and Counqure Architecture:** Sub-divides matricies into quadrents and recursively calculates 7 intermediate matricies ($M_1$ - $M_2$), reducing time complexity form $O(n^3)$ to $\approx )(n^{2.81})$.
+* **Divide and Counqure Architecture:** Sub-divides matricies into quadrents and recursively calculates 7 intermediate matricies ($M_1$ - $M_2$), reducing time complexity form $O(n^3)$ to $\approx O(n^{2.81})$.
 * **Parallel Ready:** The 7 intermediate matrix calculations are completely independent, serving as the perfedt stress-test for multi-threading and actor-model concurrency.
 
 ## Prerequisites 
@@ -30,12 +30,12 @@ $ erl
 2> B = [[5, 6], [7, 8]].
 3> matrix:multiply(A, B).
 ```
-(_Note: Erlang interprets lists of integers in the printable ASCII range as strings. Use `io:format("~w~n", [Result])` to print raw integers)
+(_Note: Erlang interprets lists of integers in the printable ASCII range as strings. Use `io:format("~w~n", [Result])` to print raw integers_)
 
 ## Future Scope: Parallelisation
 This single core version servers as the baseline benchmark. The next phase of this project involves integrating Erlang's Actor Model (Later the Skel Libary as well) to parrallelise the recursive branches.
 
-By wrapping the $M_1$ through $M_7$ calculation in a `Divide and Conqure` parallel pattern, the workload will be automatically distrubuted acrosse available CPU cores, demonstrating measurable performance speed up for large $N x N$ matrices.
+By wrapping the $M_1$ through $M_7$ calculation in a `Divide and Conqure` parallel pattern, the workload will be automatically distrubuted acrosse available CPU cores, demonstrating measurable performance speed up for large $N * N$ matrices.
 
 
 ## Resources Used
