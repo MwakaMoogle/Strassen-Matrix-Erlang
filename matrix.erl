@@ -121,28 +121,28 @@ strassen_test() ->
 
     %Multiplying the Identity Matrix returns the original matrix
     Identity = [[1, 0], [0, 1]],
-    ?assertEqual(A, strassen(A, Identity)).
+    ?assertEqual(A, multiply(A, Identity)).
 
 % 4. Test an Uneven Matrix (Tests padding, math and trimming all at once)
 uneven_strassen_test() ->
     A = [[1, 2, 3], [4, 5, 6]],
     B = [[7, 8], [9, 10], [11, 12]],
     Expected = [[58, 64], [139, 154]],
-    ?assertEqual(Expected, strassen(A, B)).
+    ?assertEqual(Expected, multiply(A, B)).
 
 % 5. Test the Base Case (1 X 1 Matrix)
 base_case_test() ->
     A = [[5]],
     B = [[4]],
-    Expected = [20],
-    ?assertEqual(Expected, strassen(A, B)).
+    Expected = [[20]],
+    ?assertEqual(Expected, multiply(A, B)).
 
 % 6. Test Negative Numbers
 negative_numbers_test() ->
     A = [[-1, -2], [-3, -4]],
     B = [[1, 2], [3, 4]],
     Expected = [[-7, -10], [-15, -22]],
-    ?assertEqual(Expected, strassen(A, B)).
+    ?assertEqual(Expected, multiply(A, B)).
 
 % 7. Test the Zero Matrix
 zero_matrix_test() ->
@@ -152,8 +152,8 @@ zero_matrix_test() ->
     Zero = [[0, 0, 0],
             [0, 0, 0],
             [0, 0, 0]],
-    ?assertEqual(Zero, strassen(A, Zero)),
-    ?assertEqual(Zero, strassen(Zero, A)).
+    ?assertEqual(Zero, multiply(A, Zero)),
+    ?assertEqual(Zero, multiply(Zero, A)).
 
 
 % 8. Test Extreme Asymmetry
@@ -164,7 +164,7 @@ extreme_asymetry_test() ->
                 [2, 4, 6, 8],
                 [3, 6, 9, 12],
                 [4, 8, 12, 16]],
-    ?assertEqual(Expected, strassen(A, B)).
+    ?assertEqual(Expected, multiply(A, B)).
 
 
 
