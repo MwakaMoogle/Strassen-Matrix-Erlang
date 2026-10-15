@@ -1,6 +1,6 @@
 -module(matrix).
 -export([multiply/2]).
--include_lib("eunit/inlcude/eunit.hrl").
+-include_lib("eunit/include/eunit.hrl").
 
 %% Multiplying matricies recursively using Strassen’s algorithm
 %% https://www.codelessgenie.com/blog/matrix-multiplication-recursive/#2-the-recursive-approach-fundamentals
@@ -113,7 +113,7 @@ pad_matrix_test() ->
                 [4, 5, 6, 0],
                 [0, 0, 0, 0],
                 [0, 0, 0, 0]],
-    ?assertEqual(Expected, pad_matrix(Input)).
+    ?assertEqual(Expected, pad(Input)).
 
 % 3. Test the Main Strassen Wrapper
 strassen_test() ->
