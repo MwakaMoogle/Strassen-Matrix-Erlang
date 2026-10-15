@@ -1,5 +1,6 @@
 -module(matrix).
 -export([multiply/2]).
+-include_lib("eunit/inlcude/eunit.hrl")
 
 %% Multiplying matricies recursively using Strassen’s algorithm
 %% https://www.codelessgenie.com/blog/matrix-multiplication-recursive/#2-the-recursive-approach-fundamentals
@@ -96,7 +97,31 @@ multiply(A, B) ->
 
     trim(PaddedC, OriginalRows, OriginalCols).
 
+%% --- EUNIT TESTS ---
 
+% 1. Test the Addition Helper
+add_test() ->
+
+% 2. Test the Padding Logic
+pad_matrix_test() ->
+
+% 3. Test the Main Strassen Wrapper
+strassen_test() ->
+
+% 4. Test an Uneven Matrix (Tests padding, math and trimming all at once)
+uneven_strassen_test() ->
+
+% 5. Test the Base Case (1 X 1 Matrix)
+base_case_test() ->
+
+% 6. Test Negative Numbers
+negative_numbers_test() ->
+
+% 7. Test the Zero Matrix
+zero_matrix_test() ->
+
+% 8. Test Extreme Asymmetry
+extreme_asymetry_test() ->
 
 
 
